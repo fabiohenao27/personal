@@ -89,10 +89,6 @@
                 font-size: 1.2rem;
             }
         }
-        /* Esconder el iframe */
-        #soundcloud-audio {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -140,11 +136,12 @@
     </div>
 
     <!-- Reproductor de audio oculto SoundCloud -->
-    <div style="margin-top: 20px;">
+    <div id="soundcloud-container" style="display: none;">
         <iframe id="soundcloud-audio" width="100%" height="166" scrolling="no" frameborder="no" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2031048476&color=%23000000&inverse=false&auto_play=true&show_user=true"></iframe>
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2031048476&color=%23000000&inverse=false&show_user=true"></iframe>
     </div>
 
+    <script src="https://w.soundcloud.com/player/api.js"></script>
     <script>
         // Incluir la fuente desde Google Fonts
         const link = document.createElement('link');
@@ -175,6 +172,13 @@
         }
 
         countdown();
+
+        // Reproducir el audio automáticamente al cargar la página
+        window.onload = function() {
+            var iframe = document.getElementById("soundcloud-audio");
+            var player = SC.Widget(iframe);
+            player.play();
+        };
     </script>
 </body>
 </html>
