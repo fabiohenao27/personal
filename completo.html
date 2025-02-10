@@ -90,20 +90,6 @@
             }
         }
     </style>
-    <script>
-        function decodePhone(encoded) {
-            return atob(encoded); // Decodifica Base64
-        }
-
-        function updateLinks() {
-            document.getElementById("whatsapp-ines").href = "https://wa.me/" + decodePhone("MzQ2MDEyMjA5Nzc=");
-            document.getElementById("call-ines").href = "tel:" + decodePhone("MzQ2MDEyMjA5Nzc=");
-            document.getElementById("whatsapp-fabio").href = "https://wa.me/" + decodePhone("MzQ2Nzc4NzYwNTU=");
-            document.getElementById("call-fabio").href = "tel:" + decodePhone("MzQ2Nzc4NzYwNTU=");
-        }
-
-        window.onload = updateLinks;
-    </script>
 </head>
 <body>
     <!-- Contenedor de la cuenta atrás -->
@@ -111,7 +97,6 @@
         <p>Nos vemos en...</p>
         <div id="countdown"></div>
     </div>
-
     <!-- Enlace al Google Calendar -->
     <div style="text-align: center; font-family: Arial, sans-serif; padding: 10px;">
         <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Inés+y+Fabio&details=¡No+te+lo+pierdas!&location=La+ubicación+de+la+boda&dates=20250606T163000Z/20250606T200000Z"
@@ -121,16 +106,16 @@
         </a>
     </div>
 
-    <!-- Botones de contacto -->
+        <!-- Botones de contacto -->
     <div class="buttons-container">
         <!-- Grupo de contacto para ti -->
         <div class="contact-group">
             <p style="font-size: 1.5rem;">Inés</p>
-            <a id="whatsapp-ines" href="#">
+            <a href="https://wa.me/34601220977" target="_blank">
                 <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Icon" class="icon">
                 <span>WhatsApp</span>
             </a>
-            <a id="call-ines" href="#">
+            <a href="tel:+34601220977">
                 <img src="https://img.icons8.com/fluency/48/000000/phone.png" alt="Call Icon" class="icon">
                 <span>Llamar</span>
             </a>
@@ -139,11 +124,11 @@
         <!-- Grupo de contacto para tu pareja -->
         <div class="contact-group">
             <p style="font-size: 1.5rem;">Fabio</p>
-            <a id="whatsapp-fabio" href="#">
+            <a href="https://wa.me/34677876055" target="_blank">
                 <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Icon" class="icon">
                 <span>WhatsApp</span>
             </a>
-            <a id="call-fabio" href="#">
+            <a href="tel:+34677876055">
                 <img src="https://img.icons8.com/fluency/48/000000/phone.png" alt="Call Icon" class="icon">
                 <span>Llamar</span>
             </a>
@@ -151,6 +136,12 @@
     </div>
 
     <script>
+        // Incluir la fuente desde Google Fonts
+        const link = document.createElement('link');
+        link.href = 'https://fonts.googleapis.com/css2?family=Carattere&display=swap';
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+
         // Función de cuenta atrás
         function countdown() {
             const weddingDate = new Date("2025-06-06T17:30:00Z");
