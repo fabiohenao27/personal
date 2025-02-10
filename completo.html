@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +22,8 @@
             background-color: rgba(255, 255, 255, 1);
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0);
-            width: 100%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 90%;
             padding: 20px;
             margin: 20px auto;
         }
@@ -80,12 +80,6 @@
             width: 24px;
             height: 24px;
         }
-        /* Ocultar botón de audio */
-        #play-audio {
-            position: absolute;
-            left: -9999px;
-            opacity: 0;
-        }
         /* Responsivo */
         @media (max-width: 480px) {
             p {
@@ -94,6 +88,13 @@
             #countdown {
                 font-size: 1.2rem;
             }
+        }
+        /* Reproductor de música */
+        #music-player {
+            margin-top: 20px;
+            width: 90%;
+            max-width: 90%;
+            text-align: center;
         }
     </style>
 </head>
@@ -104,15 +105,51 @@
         <div id="countdown"></div>
     </div>
 
-    <!-- Reproductor de SoundCloud -->
-    <iframe id="soundcloud-audio" width="100%" height="166" scrolling="no" frameborder="no"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2031048476&color=%23000000&inverse=false&show_user=true&auto_play=true">
-    </iframe>
+    <!-- Enlace al Google Calendar -->
+    <div style="text-align: center; font-family: Arial, sans-serif; padding: 10px;">
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Inés+y+Fabio&details=¡No+te+lo+pierdas!&location=La+ubicación+de+la+boda&dates=20250606T163000Z/20250606T200000Z"
+           target="_blank"
+           style="padding: 10px 20px; font-size: 1em; color: #000000; text-decoration: none; border-radius: 5px; border: none; cursor: pointer;">
+           Añadir al Google Calendar
+        </a>
+    </div>
 
-    <!-- Botón oculto para activar el audio -->
-    <button id="play-audio">Reproducir Audio</button>
+    <!-- Botones de contacto -->
+    <div class="buttons-container">
+        <!-- Grupo de contacto para Inés -->
+        <div class="contact-group">
+            <p style="font-size: 1.5rem;">Inés</p>
+            <a href="https://wa.me/34601220977" target="_blank">
+                <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Icon" class="icon">
+                <span>WhatsApp</span>
+            </a>
+            <a href="tel:+34601220977">
+                <img src="https://img.icons8.com/fluency/48/000000/phone.png" alt="Call Icon" class="icon">
+                <span>Llamar</span>
+            </a>
+        </div>
 
-    <script src="https://w.soundcloud.com/player/api.js"></script>
+        <!-- Grupo de contacto para Fabio -->
+        <div class="contact-group">
+            <p style="font-size: 1.5rem;">Fabio</p>
+            <a href="https://wa.me/34677876055" target="_blank">
+                <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Icon" class="icon">
+                <span>WhatsApp</span>
+            </a>
+            <a href="tel:+34677876055">
+                <img src="https://img.icons8.com/fluency/48/000000/phone.png" alt="Call Icon" class="icon">
+                <span>Llamar</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Reproductor de música -->
+    <div id="music-player">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2031048476&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+        </iframe>
+    </div>
+
     <script>
         // Incluir la fuente desde Google Fonts
         const link = document.createElement('link');
@@ -143,26 +180,6 @@
         }
 
         countdown();
-
-        // Intentar reproducir automáticamente el audio tras la interacción del usuario
-        window.onload = function() {
-            var iframe = document.getElementById("soundcloud-audio");
-            var player = SC.Widget(iframe);
-            var playButton = document.getElementById("play-audio");
-
-            function playAudio() {
-                player.play();
-            }
-
-            // Detectar interacción del usuario para iniciar la reproducción
-            document.body.addEventListener("click", function() {
-                playAudio();
-            }, { once: true });
-
-            playButton.addEventListener("click", function() {
-                playAudio();
-            });
-        };
     </script>
 </body>
 </html>
