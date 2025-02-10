@@ -89,6 +89,10 @@
                 font-size: 1.2rem;
             }
         }
+        /* Esconder el iframe */
+        #soundcloud-audio {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -135,10 +139,10 @@
         </div>
     </div>
 
-    <!-- Reproductor de audio SoundCloud -->
+    <!-- Reproductor de audio oculto SoundCloud -->
     <div style="margin-top: 20px;">
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/272285192&color=%23000000&inverse=false&auto_play=false&show_user=true"></iframe>
+        <iframe id="soundcloud-audio" width="100%" height="166" scrolling="no" frameborder="no" 
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2031048476&color=%23000000&inverse=false&auto_play=false&show_user=true"></iframe>
     </div>
 
     <script>
